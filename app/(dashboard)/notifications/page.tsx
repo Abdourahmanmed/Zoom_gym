@@ -58,7 +58,7 @@ export default function Notifications() {
         )}
       </AnimatePresence>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Card><h2 className="font-semibold">Expiring Memberships</h2><p className="text-secondaryText">43 members expiring within 7 days.</p></Card>
         <Card><h2 className="font-semibold">Unpaid Memberships</h2><p className="text-secondaryText">12 pending payments.</p></Card>
         <Card><h2 className="font-semibold">SMS Reminders Queue</h2><p className="text-secondaryText">18 reminders queued.</p></Card>
@@ -66,7 +66,7 @@ export default function Notifications() {
       </div>
 
       <Card className="space-y-4">
-        <div className="flex items-center gap-2">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
           <BellRing className="h-5 w-5 text-primary" />
           <h2 className="text-lg font-semibold">Alertes WhatsApp automatiques</h2>
         </div>

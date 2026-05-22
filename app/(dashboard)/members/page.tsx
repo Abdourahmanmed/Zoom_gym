@@ -125,8 +125,8 @@ export default function Members() {
         )}
       </AnimatePresence>
 
-      <Card>
-        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+      <Card className="w-full overflow-hidden">
+        <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <h1 className="text-2xl font-bold">Members</h1>
           <button
             onClick={() => setOpen(true)}
@@ -146,8 +146,8 @@ export default function Members() {
           />
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+        <div className="w-full overflow-x-auto">
+          <table className="min-w-[700px] w-full text-sm">
             <thead className="text-secondaryText">
               <tr>
                 {["Profile", "Name", "Phone", "Plan", "Start", "End", "Status", "Actions"].map((h) => (
@@ -191,13 +191,13 @@ export default function Members() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 grid place-items-center bg-black/70 p-4"
+            className="fixed inset-0 z-40 grid place-items-center bg-black/70 p-3 sm:p-4"
           >
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 20, opacity: 0 }}
-              className="z-50 w-full max-w-3xl rounded-2xl border border-white/10 bg-card p-5"
+              className="z-50 max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-white/10 bg-card p-4 sm:p-5"
             >
               <div className="mb-4 flex items-center justify-between">
                 <h2 className="text-xl font-semibold">Nouvel abonné</h2>
