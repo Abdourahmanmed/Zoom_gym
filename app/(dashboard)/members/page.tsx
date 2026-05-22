@@ -26,7 +26,7 @@ type Member = {
   start: string;
   end: string;
   amount: string;
-  paymentMode: "Cash" | "Waafi" | "Carte";
+  paymentMode: "Cash" | "Waafi" | "Card";
   emergencyContact?: string;
   notes?: string;
   status: string;
@@ -43,7 +43,7 @@ const defaultForm = {
   start: "",
   end: "",
   amount: "",
-  paymentMode: "Cash" as "Cash" | "Waafi" | "Carte",
+  paymentMode: "Cash" as "Cash" | "Waafi" | "Card",
   emergencyContact: "",
   notes: "",
 };
@@ -56,7 +56,7 @@ export default function Members() {
   const [localMembers, setLocalMembers] = useState<Member[]>(
     initialMembers.map((m) => ({
       ...m,
-      gender: "Non défini",
+      gender: "Not specified",
       amount: "0",
       paymentMode: "Cash",
     }))
@@ -120,7 +120,7 @@ export default function Members() {
             exit={{ opacity: 0, y: -8 }}
             className="fixed right-5 top-5 z-50 flex items-center gap-2 rounded-xl border border-primary/20 bg-[#123126] px-4 py-3 text-sm text-primary shadow-soft"
           >
-            <CheckCircle2 className="h-4 w-4" /> Abonné ajouté avec succès
+            <CheckCircle2 className="h-4 w-4" /> Member added successfully
           </motion.div>
         )}
       </AnimatePresence>
@@ -132,7 +132,7 @@ export default function Members() {
             onClick={() => setOpen(true)}
             className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 font-medium text-black transition hover:opacity-90"
           >
-            <UserPlus className="h-4 w-4" /> Ajouter un abonné
+            <UserPlus className="h-4 w-4" /> Add Member
           </button>
         </div>
 
@@ -200,24 +200,24 @@ export default function Members() {
               className="z-50 max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-white/10 bg-card p-4 sm:p-5"
             >
               <div className="mb-4 flex items-center justify-between">
-                <h2 className="text-xl font-semibold">Nouvel abonné</h2>
+                <h2 className="text-xl font-semibold">New Member</h2>
                 <button onClick={() => setOpen(false)} className="rounded-lg p-1 hover:bg-white/10">
                   <X className="h-4 w-4" />
                 </button>
               </div>
               <div className="grid gap-3 md:grid-cols-2">
                 {[
-                  ["Nom complet", "name", true],
-                  ["Téléphone WhatsApp", "phone", true],
+                  ["Full Name", "name", true],
+                  ["WhatsApp Phone", "phone", true],
                   ["Email", "email", false],
-                  ["Sexe", "gender", true],
-                  ["Date de naissance", "dob", false],
-                  ["Adresse", "address", false],
-                  ["Type d’abonnement", "plan", true],
-                  ["Date de début", "start", true],
-                  ["Date de fin", "end", true],
-                  ["Montant payé", "amount", true],
-                  ["Contact d’urgence", "emergencyContact", false],
+                  ["Gender", "gender", true],
+                  ["Date of Birth", "dob", false],
+                  ["Address", "address", false],
+                  ["Membership Plan", "plan", true],
+                  ["Start Date", "start", true],
+                  ["End Date", "end", true],
+                  ["Amount Paid", "amount", true],
+                  ["Emergency Contact", "emergencyContact", false],
                 ].map(([label, key, required]) => (
                   <label key={key} className="space-y-1 text-sm">
                     <span className="text-secondaryText">{label}{required ? " *" : ""}</span>
@@ -231,9 +231,9 @@ export default function Members() {
                 ))}
 
                 <label className="space-y-1 text-sm">
-                  <span className="text-secondaryText">Mode de paiement *</span>
+                  <span className="text-secondaryText">Payment Method *</span>
                   <div className="grid grid-cols-3 gap-2">
-                    {(["Cash", "Waafi", "Carte"] as const).map((mode) => (
+                    {(["Cash", "Waafi", "Card"] as const).map((mode) => (
                       <button
                         key={mode}
                         type="button"
@@ -265,7 +265,7 @@ export default function Members() {
                   onClick={saveMember}
                   className="rounded-xl bg-primary px-4 py-2 font-medium text-black"
                 >
-                  Enregistrer l’abonné
+                  Save Member
                 </button>
               </div>
             </motion.div>
