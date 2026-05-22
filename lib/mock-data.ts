@@ -6,4 +6,10 @@ export const metrics = [
   { label: "Today's Attendance", value: "216", change: "Peak 6PM", tone: "text-secondaryText" }
 ];
 export const members = ["Ahmed Hassan","Fatouma Ali","Youssouf Omar","Amina Ismail","Nimo Abdillahi","Abdi Warsame"].map((name,i)=>({id:`m${i+1}`,name,phone:`+253 77${100000+i}`,plan:["Monthly","3 Months","6 Months","Annual"][i%4],start:"2026-01-10",end:`2026-0${(i%6)+6}-15`,status:["Active","Expiring Soon","Expired"][i%3]}));
-export const revenueData = [{m:"Jan",r:11200},{m:"Feb",r:12800},{m:"Mar",r:14100},{m:"Apr",r:16700},{m:"May",r:18640}];
+export const revenueData = [
+  { month: "Jan", revenue: 11200 },
+  { month: "Feb", revenue: 12800 },
+  { month: "Mar", revenue: 14100 },
+  { month: "Apr", revenue: 16700 },
+  { month: "May", revenue: 18640 },
+];
